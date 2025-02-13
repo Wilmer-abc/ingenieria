@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiantes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+<body>
+    
+    <div class="container">
+        <h2 class="titulo">Registro de Estudiantes</h2>
+
+        <div class="formulario">
+            <form action="/agregar" method="POST">
+                <label for="carnet">Carnet:</label>
+                <div class="carnet-container">
+                    <input type="text" name="carnet1" required pattern="\d{4}" placeholder="XXXX">
+                    <input type="text" name="carnet2" required pattern="\d{2}" placeholder="XX">
+                    <input type="text" name="carnet3" required pattern="\d{4}" placeholder="XXXX">
+                </div>
+
+                <label>Nombre:</label>
+                <input type="text" name="PrimerNombre" placeholder="Primer Nombre" required>
+                <input type="text" name="SegundoNombre" placeholder="Segundo Nombre">
+
+                <label>Apellido:</label>
+                <input type="text" name="PrimerApellido" placeholder="Primer Apellido" required>
+                <input type="text" name="SegundoApellido" placeholder="Segundo Apellido">
+
+                <label>Telefono:</label>
+                <input type="text" name="Telefono" placeholder="Numero de Telefono">
+
+                <label>Correo Electronico:</label>
+                <input type="email" name="CorreoElectronico" placeholder="Correo Electronico">
+
+                <label>Pagado:</label>
+                <select name="Pagado">
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label>Fecha Registro:</label>
+                <input type="date" name="fecha">
+
+                <div class="btn-container">
+                    <button type="submit" class="btn btn-agregar">Agregar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="acciones">
+            <form action="/buscar" method="POST">
+                <label>Buscar</label>
+                <div class="carnet-container">
+                    <input type="text" name="carnet1" required pattern="\d{4}" placeholder="XXXX">
+                    <input type="text" name="carnet2" required pattern="\d{2}" placeholder="XX">
+                    <input type="text" name="carnet3" required pattern="\d{4}" placeholder="XXXX">
+                </div>
+                <button type="submit" class="btn btn-buscar">Buscar</button>
+            </form>
+
+            <form action="/eliminar" method="POST">
+                <label>Eliminar</label>
+                <div class="carnet-container">
+                    <input type="text" name="carnet1" required pattern="\d{4}" placeholder="XXXX">
+                    <input type="text" name="carnet2" required pattern="\d{2}" placeholder="XX">
+                    <input type="text" name="carnet3" required pattern="\d{4}" placeholder="XXXX">
+                </div>
+                <button type="submit" class="btn btn-eliminar">Eliminar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
