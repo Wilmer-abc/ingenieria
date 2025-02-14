@@ -3,7 +3,7 @@ from alumnos import agregar_alumno, actualizar_alumno, eliminar_alumno, obtener_
 import secrets
 
 app = Flask(__name__)
-app.secret_key = secrets.token_hex(16)  # Genera una clave secreta aleatoria
+app.secret_key = secrets.token_hex(16) 
 
 @app.route("/")
 def index():
@@ -25,7 +25,7 @@ def agregar():
     
     agregar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha)
 
-    flash("Estudiante agregado exitosamente.")  # Mueve el flash aquí
+    flash("Estudiante agregado exitosamente.")  
     return redirect(url_for("index"))
 
 @app.route("/buscar", methods=["POST"])
@@ -44,7 +44,7 @@ def buscar():
         return render_template("editar.html", alumno=alumno)
     else:
         flash("Alumno no encontrado.")
-        return redirect(url_for("index"))  # Redirige en vez de mostrar error 404
+        return redirect(url_for("index"))  
 
 @app.route("/actualizar", methods=["POST"])
 def actualizar():
@@ -62,7 +62,7 @@ def actualizar():
 
     actualizar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha)
 
-    flash("Estudiante actualizado correctamente.")  # Mueve el flash aquí
+    flash("Estudiante actualizado correctamente.")  
     return redirect(url_for("index"))
 
 @app.route("/eliminar", methods=["POST"])
@@ -71,7 +71,6 @@ def eliminar():
     carnet2 = request.form["carnet2"]
     carnet3 = request.form["carnet3"]
 
-    # Verificar si el alumno existe antes de eliminarlo
     alumno = obtener_alumno(carnet1, carnet2, carnet3)
 
     if alumno:
