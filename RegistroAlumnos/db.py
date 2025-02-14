@@ -1,5 +1,5 @@
 import mysql.connector
-
+ 
 def conectar_bd():
     try:
         conexion = mysql.connector.connect(
