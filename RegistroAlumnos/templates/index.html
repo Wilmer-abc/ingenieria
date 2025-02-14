@@ -32,36 +32,37 @@
                     <input type="text" name="carnet2" required pattern="\d{2}" placeholder="XX">
                     <input type="text" name="carnet3" required pattern="\d{4}" placeholder="XXXX">
                 </div>
-
+                <!-- Nombre -->
                 <label>Nombre:</label>
                 <input type="text" name="PrimerNombre" placeholder="Primer Nombre" required>
                 <input type="text" name="SegundoNombre" placeholder="Segundo Nombre">
-
+                <!--Apellido -->
                 <label>Apellido:</label>
                 <input type="text" name="PrimerApellido" placeholder="Primer Apellido" required>
                 <input type="text" name="SegundoApellido" placeholder="Segundo Apellido">
-
+                <!--Telefono -->
                 <label>Telefono:</label>
                 <input type="text" name="Telefono" placeholder="Numero de Telefono">
-
+                <!--correo -->
                 <label>Correo Electronico:</label>
                 <input type="email" name="CorreoElectronico" placeholder="Correo Electronico">
-
+                <!--pago -->
                 <label>Pagado:</label>
                 <select name="Pagado">
                     <option value="Sí">Sí</option>
                     <option value="No">No</option>
                 </select>
-
+                <!--fecha registro -->
                 <label>Fecha Registro:</label>
                 <input type="date" name="fecha">
-
+                <!--boton guardar-->
                 <div class="btn-container">
                     <button type="submit" class="btn btn-agregar">Agregar</button>
                 </div>
             </form>
         </div>
 
+        <!--campos y botonde buscar -->
         <div class="acciones">
             <form action="/buscar" method="POST">
                 <label>Buscar</label>
@@ -73,6 +74,7 @@
                 <button type="submit" class="btn btn-buscar">Buscar</button>
             </form>
 
+            <!--campos y boton de eliminar -->
             <form action="/eliminar" method="POST">
                 <label>Eliminar</label>
                 <div class="carnet-container">
