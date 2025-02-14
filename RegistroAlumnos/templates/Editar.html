@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Estudiante</title>
-    <!-- Tu CSS personalizado -->
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -25,7 +25,7 @@
 
         <div class="card p-4 shadow">
             <form action="/actualizar" method="POST">
-                <!-- Carnet (No editable, oculto) -->
+
                 <input type="hidden" name="carnet1" value="{{ alumno.carnet1 }}">
                 <input type="hidden" name="carnet2" value="{{ alumno.carnet2 }}">
                 <input type="hidden" name="carnet3" value="{{ alumno.carnet3 }}">
