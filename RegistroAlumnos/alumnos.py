@@ -4,7 +4,7 @@ def agregar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, pri
     conexion = conectar_bd()
     if not conexion:
         print("Error: No se pudo conectar a la base de datos.")
-        return  # Detener la ejecución
+        return  
     
     cursor = conexion.cursor()
     sql = """
@@ -56,12 +56,12 @@ def obtener_alumno(carnet1, carnet2, carnet3):
         valores = (carnet1, carnet2, carnet3)
 
         cursor.execute(sql, valores)
-        alumno = cursor.fetchone()  # Obtiene un solo resultado
+        alumno = cursor.fetchone()  
 
         cursor.close()
         conexion.close()
 
-        return alumno  # Retorna los datos del alumno
+        return alumno  
 
     except mysql.connector.Error as err:
         print("Error al obtener alumno:", err)
