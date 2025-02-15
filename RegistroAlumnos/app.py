@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash 
 from alumnos import agregar_alumno, actualizar_alumno, eliminar_alumno, obtener_alumno
+from estadisticas import obtener_estadisticas_edad
 import secrets
 
 app = Flask(__name__)
@@ -7,7 +8,8 @@ app.secret_key = secrets.token_hex(16)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    estadisticas = obtener_estadisticas_edad()  # Obtener estadísticas de edad
+    return render_template("index.html", estadisticas=estadisticas)
 
 @app.route("/agregar", methods=["POST"])
 def agregar():
@@ -21,9 +23,9 @@ def agregar():
     telefono = request.form["Telefono"]
     correo = request.form["CorreoElectronico"]
     pagado = request.form["Pagado"]
-    fecha = request.form["fecha"]
+    fecha_nacimiento = request.form["FechaNacimiento"]  # Cambio aquí
     
-    agregar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha)
+    agregar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha_nacimiento)
 
     flash("Estudiante agregado exitosamente.")  
     return redirect(url_for("index"))
@@ -58,9 +60,9 @@ def actualizar():
     telefono = request.form["Telefono"]
     correo = request.form["CorreoElectronico"]
     pagado = request.form["Pagado"]
-    fecha = request.form["fecha"]
+    fecha_nacimiento = request.form["FechaNacimiento"]  # Cambio aquí
 
-    actualizar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha)
+    actualizar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha_nacimiento)
 
     flash("Estudiante actualizado correctamente.")  
     return redirect(url_for("index"))
