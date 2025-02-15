@@ -38,19 +38,19 @@ def interfaz():
     pagado.current(1)
 
     tk.Label(root, text="Fecha Nacimiento").pack()
-    fecha_nacimiento = tk.Entry(root)  # Cambio aquí
+    fecha_nacimiento = tk.Entry(root) 
     fecha_nacimiento.pack()
 
     tk.Button(root, text="Agregar", command=lambda: agregar_alumno(
         carnet1.get(), carnet2.get(), carnet3.get(),
         primer_nombre.get(), segundo_nombre.get(), primer_apellido.get(), segundo_apellido.get(),
-        telefono.get(), correo.get(), pagado.get(), fecha_nacimiento.get()  # Cambio aquí
+        telefono.get(), correo.get(), pagado.get(), fecha_nacimiento.get()  
     )).pack()
 
     tk.Button(root, text="Actualizar", command=lambda: actualizar_alumno(
         carnet1.get(), carnet2.get(), carnet3.get(),
         primer_nombre.get(), segundo_nombre.get(), primer_apellido.get(), segundo_apellido.get(),
-        telefono.get(), correo.get(), pagado.get(), fecha_nacimiento.get()  # Cambio aquí
+        telefono.get(), correo.get(), pagado.get(), fecha_nacimiento.get()  
     )).pack()
 
     tk.Button(root, text="Eliminar", command=lambda: eliminar_alumno(
