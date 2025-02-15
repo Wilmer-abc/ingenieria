@@ -1,5 +1,6 @@
 from db import conectar_bd
 
+
 def agregar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha_nac):
     conexion = conectar_bd()
     if not conexion:
@@ -16,6 +17,7 @@ def agregar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, pri
     conexion.commit()
     conexion.close()
 
+
 def actualizar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha_nac):
     conexion = conectar_bd()
     cursor = conexion.cursor()
@@ -29,6 +31,7 @@ def actualizar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, 
     conexion.commit()
     conexion.close()
 
+
 def eliminar_alumno(carnet1, carnet2, carnet3):
     conexion = conectar_bd()
     cursor = conexion.cursor()
@@ -36,6 +39,7 @@ def eliminar_alumno(carnet1, carnet2, carnet3):
     cursor.execute(sql, (carnet1, carnet2, carnet3))
     conexion.commit()
     conexion.close()
+
 
 import mysql.connector
 
@@ -94,5 +98,3 @@ def eliminar_alumno(carnet1, carnet2, carnet3):
 
     except mysql.connector.Error as err:
         print("Error al eliminar alumno:", err)
-
-
