@@ -15,10 +15,9 @@
       {% for mensaje in mensajes %}
         {{ mensaje }}
       {% endfor %}
-    </div>S
+    </div>
   {% endif %}
 {% endwith %}
-
 
     <div class="container mt-4">
         <h2 class="text-center">Editar Estudiante</h2>
@@ -39,19 +38,19 @@
 
                 <div class="mb-3">
                     <label class="form-label">Apellido:</label>
-                    <input type="text" class="form-control" name="PrimerApellido" placeholder="Primer PrimerApellido" value="{{ alumno.PrimerApellido }}" required>
+                    <input type="text" class="form-control" name="PrimerApellido" placeholder="Primer Apellido" value="{{ alumno.PrimerApellido }}" required>
                     <input type="text" class="form-control" name="SegundoApellido" placeholder="Segundo Apellido" value="{{ alumno.SegundoApellido }}">
                 </div>
 
                 <!-- Teléfono y Correo -->
                 <div class="mb-3">
-                    <label class="form-label">Telefono:</label>
-                    <input type="text" class="form-control" name="Telefono" placeholder="Numero de Telefono"value="{{ alumno.Telefono }}">
+                    <label class="form-label">Teléfono:</label>
+                    <input type="text" class="form-control" name="Telefono" placeholder="Número de Teléfono" value="{{ alumno.Telefono }}">
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Correo Electronico:</label>
-                    <input type="email" class="form-control" name="CorreoElectronico" placeholder="Correo Electronico"value="{{ alumno.CorreoElectronico }}">
+                    <label class="form-label">Correo Electrónico:</label>
+                    <input type="email" class="form-control" name="CorreoElectronico" placeholder="Correo Electrónico" value="{{ alumno.CorreoElectronico }}">
                 </div>
 
                 <!-- Pagado -->
@@ -63,10 +62,10 @@
                     </select>
                 </div>
 
-                <!-- Fecha Registro -->
+                <!-- Fecha de Nacimiento -->
                 <div class="mb-3">
-                    <label class="form-label">Fecha de Registro:</label>
-                    <input type="date" class="form-control" name="fecha" value="{{ alumno.fecha }}">
+                    <label class="form-label">Fecha de Nacimiento:</label>
+                    <input type="date" class="form-control" name="FechaNacimiento" value="{{ alumno.FechaNacimiento }}">
                 </div>
 
                 <!-- Botones Guardar y Cancelar -->
