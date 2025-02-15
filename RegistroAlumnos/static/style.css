@@ -94,8 +94,8 @@ button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-decoration: none; /* Evita el subrayado de los enlaces */
-    display: inline-block; /* Asegura que el <a> tenga el mismo comportamiento que un botón */
+    text-decoration: none; 
+    display: inline-block; 
     text-align: center;
 }
 
