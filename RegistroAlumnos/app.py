@@ -8,7 +8,7 @@ app.secret_key = secrets.token_hex(16)
 
 @app.route("/")
 def index():
-    estadisticas = obtener_estadisticas_edad()  # Obtener estadísticas de edad
+    estadisticas = obtener_estadisticas_edad()  
     return render_template("index.html", estadisticas=estadisticas)
 
 @app.route("/agregar", methods=["POST"])
@@ -23,7 +23,7 @@ def agregar():
     telefono = request.form["Telefono"]
     correo = request.form["CorreoElectronico"]
     pagado = request.form["Pagado"]
-    fecha_nacimiento = request.form["FechaNacimiento"]  # Cambio aquí
+    fecha_nacimiento = request.form["FechaNacimiento"] 
     
     agregar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha_nacimiento)
 
@@ -60,7 +60,7 @@ def actualizar():
     telefono = request.form["Telefono"]
     correo = request.form["CorreoElectronico"]
     pagado = request.form["Pagado"]
-    fecha_nacimiento = request.form["FechaNacimiento"]  # Cambio aquí
+    fecha_nacimiento = request.form["FechaNacimiento"]  
 
     actualizar_alumno(carnet1, carnet2, carnet3, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, correo, pagado, fecha_nacimiento)
 
