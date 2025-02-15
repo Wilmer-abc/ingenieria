@@ -2,10 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Estudiantes</title>
+    <title>Registro de Alumnos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 {% with mensajes = get_flashed_messages() %}
@@ -18,20 +16,18 @@
   {% endif %}
 {% endwith %}
 
-
 <body>
-    
-    <div class="container">
-        <h2 class="titulo">Registro de Estudiantes</h2>
-
+    <div class="contenedor">
+        
+        <!-- Formulario de Registro -->
         <div class="formulario">
-            <form action="/agregar" method="POST">
-                <label for="carnet">Carnet:</label>
-                <div class="carnet-container">
-                    <input type="text" name="carnet1" required pattern="\d{4}" placeholder="XXXX">
+            <h2>Registro de Alumnos</h2>
+            <form action="{{ url_for('agregar') }}" method="post">
+                <label for="carnet1">Carnet:</label>
+                <input type="text" name="carnet1" required pattern="\d{4}" placeholder="XXXX">
                     <input type="text" name="carnet2" required pattern="\d{2}" placeholder="XX">
                     <input type="text" name="carnet3" required pattern="\d{4}" placeholder="XXXX">
-                </div>
+
                 <!-- Nombre -->
                 <label>Nombre:</label>
                 <input type="text" name="PrimerNombre" placeholder="Primer Nombre" required>
@@ -52,18 +48,35 @@
                     <option value="Sí">Sí</option>
                     <option value="No">No</option>
                 </select>
-                <!--fecha registro -->
-                <label>Fecha Registro:</label>
-                <input type="date" name="fecha">
-                <!--boton guardar-->
-                <div class="btn-container">
-                    <button type="submit" class="btn btn-agregar">Agregar</button>
-                </div>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" name="FechaNacimiento" required>
+
+                <button type="submit">Agregar Alumno</button>
             </form>
         </div>
 
-        <!--campos y botonde buscar -->
-        <div class="acciones">
+        <!-- Estadísticas de Edad -->
+        <div class="estadisticas">
+            <h2>Alumnos Inscritos por Edad</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Edad</th>
+                        <th>Cantidad de Alumnos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for edad, cantidad in estadisticas %}
+                    <tr>
+                        <td>{{ edad }}</td>
+                        <td>{{ cantidad }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!--campos y boton de buscar -->
             <form action="/buscar" method="POST">
                 <label>Buscar</label>
                 <div class="carnet-container">
@@ -86,6 +99,5 @@
             </form>
         </div>
     </div>
-
 </body>
 </html>
